@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "./components/Home";
+import car from "./components/car";
+import list from "./components/list";
+import user from "./components/user";
 
 Vue.use(Router);
 
@@ -10,17 +13,40 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      component: Home,
+ 
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: "/home",
+      name: "home",
+     
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+        import(/* webpackChunkName: "about" */ "./components/Home.vue")
+    },
+    {
+      path: "/list",
+      name: "list",
+     
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/list.vue")
+    },
+    {
+      path: "/car",
+      name: "car",
+     
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/car.vue")
+    },
+    {
+      path: "/user",
+      name: "user",
+     
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/user.vue")
+    },
+    {
+      path: "/",
+      redirect: "/home"
     }
   ]
 });
